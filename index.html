@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Durva Fincorp | Strategic Wealth &amp; Asset Architecture</title>
+<meta name="description" content="Durva Fincorp offers disciplined, risk-adjusted wealth management: mutual funds, insurance advisory, retirement planning and estate structuring for individuals, families and businesses.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="canonical" href="https://durvafincorp.cloud/">
+
+<!-- Open Graph / social sharing. Absolute URLs are required here —
+     WhatsApp, LinkedIn and Facebook will not resolve relative paths. -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://durvafincorp.cloud/">
+<meta property="og:site_name" content="Durva Fincorp">
+<meta property="og:title" content="Durva Fincorp | Strategic Wealth &amp; Asset Architecture">
+<meta property="og:description" content="Disciplined wealth creation with precision growth. Custom-tailored investment strategies, risk mitigation and continuous asset monitoring.">
+<meta property="og:image" content="https://durvafincorp.cloud/logo.png">
+<meta name="twitter:card" content="summary">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root{
+  --navy-950:#030A14; --navy-900:#071220; --navy-800:#0D1E36; --navy-700:#162C4E;
+  --gold-300:#F4D37A; --gold-400:#E5C05B; --gold-500:#C99D36; --gold-600:#A47D22;
+  --em-400:#4CB98C;  --em-500:#35916C;  --em-700:#265C42; --em-800:#18422F;
+  --slate-200:#E2E8F0; --slate-300:#CBD5E1; --slate-400:#94A3B8;
+  --slate-500:#64748B; --slate-600:#475569; --slate-700:#334155; --slate-800:#1E293B;
+  --radius:16px; --radius-lg:24px;
+  --maxw:1180px;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--navy-950); color:var(--slate-200);
+  font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  -webkit-font-smoothing:antialiased; line-height:1.6; overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+::selection{background:var(--gold-500);color:var(--navy-950)}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.eyebrow{
+  font-size:11px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.14em;color:var(--gold-500);margin-bottom:10px;
+}
+h2.section-title{
+  font-size:clamp(1.6rem,4vw,2.35rem);font-weight:700;color:#fff;
+  letter-spacing:-.02em;line-height:1.2;
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(3,10,20,.85);backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(30,41,59,.8);
+}
+.nav-inner{
+  max-width:var(--maxw);margin:0 auto;padding:0 24px;height:76px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.brand{display:flex;align-items:center;gap:14px;flex-shrink:0}
+/* No decorative ring here — the logo already carries its own green ring */
+.brand-mark{width:46px;height:46px;flex-shrink:0}
+.brand-mark img{width:100%;height:100%;object-fit:contain;transition:transform .3s}
+.brand:hover .brand-mark img{transform:scale(1.06)}
+.brand-name{font-size:19px;font-weight:800;color:#fff;letter-spacing:-.02em;line-height:1.15;display:block}
+.brand-name span{color:var(--gold-400)}
+.brand-sub{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--slate-400);font-weight:500}
+
+.nav-links{display:flex;align-items:center;gap:32px;font-size:14px;font-weight:500;color:var(--slate-300)}
+.nav-links a{transition:color .2s}
+.nav-links a:hover{color:var(--gold-400)}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  border-radius:12px;font-weight:700;cursor:pointer;border:none;
+  transition:filter .2s,background .2s,transform .1s;
+}
+.btn-gold{
+  background:linear-gradient(to right,var(--gold-500),var(--gold-400));
+  color:var(--navy-950);padding:11px 20px;font-size:14px;
+  box-shadow:0 8px 24px -8px rgba(201,157,54,.5);
+}
+.btn-gold:hover{filter:brightness(1.1)}
+.btn-gold:active{transform:translateY(1px)}
+.btn-ghost{
+  background:var(--navy-900);border:1px solid var(--slate-700);
+  color:var(--slate-200);padding:13px 26px;font-size:15px;font-weight:600;
+}
+.btn-ghost:hover{background:var(--navy-800)}
+.btn-lg{padding:14px 28px;font-size:15px}
+
+/* Mobile menu toggle — hidden on desktop */
+.nav-toggle{
+  display:none;background:none;border:1px solid var(--slate-700);
+  border-radius:10px;padding:8px;color:var(--slate-200);cursor:pointer;
+}
+.nav-toggle svg{width:22px;height:22px;display:block}
+.nav-toggle .icon-close{display:none}
+.nav-toggle[aria-expanded="true"] .icon-open{display:none}
+.nav-toggle[aria-expanded="true"] .icon-close{display:block}
+
+.mobile-menu{
+  display:none;border-top:1px solid rgba(30,41,59,.8);
+  background:var(--navy-950);padding:8px 24px 20px;
+}
+.mobile-menu.open{display:block}
+.mobile-menu a{
+  display:block;padding:14px 4px;font-size:15px;font-weight:500;
+  color:var(--slate-300);border-bottom:1px solid rgba(30,41,59,.6);
+}
+.mobile-menu a:last-child{border-bottom:none}
+.mobile-menu .btn{width:100%;margin-top:14px;padding:14px}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{position:relative;padding:150px 0 110px;overflow:hidden}
+.glow{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
+.glow-a{top:0;right:18%;width:380px;height:380px;background:rgba(24,66,47,.35)}
+.glow-b{top:32%;left:14%;width:380px;height:380px;background:rgba(201,157,54,.12)}
+.hero .wrap{position:relative;z-index:1}
+.hero-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:56px;align-items:center}
+
+.badge{
+  display:inline-flex;align-items:center;gap:9px;padding:7px 15px;border-radius:999px;
+  background:var(--navy-900);border:1px solid rgba(51,65,85,.8);
+  color:var(--gold-400);font-size:11.5px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.08em;margin-bottom:26px;
+}
+.badge svg{width:15px;height:15px;color:var(--em-400);flex-shrink:0}
+
+.hero h1{
+  font-size:clamp(2.1rem,5.4vw,3.6rem);font-weight:800;color:#fff;
+  letter-spacing:-.03em;line-height:1.12;margin-bottom:22px;
+}
+.grad-text{
+  background:linear-gradient(to right,var(--gold-400),var(--em-400));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero p.lead{
+  font-size:clamp(.95rem,2vw,1.1rem);color:var(--slate-400);
+  line-height:1.75;margin-bottom:38px;max-width:600px;
+}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-cta svg{width:16px;height:16px}
+
+.showcase{
+  position:relative;aspect-ratio:1;width:100%;max-width:380px;margin:0 auto;
+  border-radius:var(--radius-lg);border:1px solid var(--slate-800);
+  background:linear-gradient(to bottom,var(--navy-900),var(--navy-950));
+  display:flex;align-items:center;justify-content:center;padding:34px;
+  box-shadow:0 30px 60px -20px rgba(0,0,0,.7);
+}
+.showcase img{
+  max-height:100%;max-width:100%;object-fit:contain;
+  filter:drop-shadow(0 20px 35px rgba(0,0,0,.6));transition:transform .5s;
+}
+.showcase:hover img{transform:scale(1.05)}
+
+/* ============================================================
+   SERVICES
+   ============================================================ */
+.band{background:rgba(7,18,32,.5);border-top:1px solid rgba(30,41,59,.8);border-bottom:1px solid rgba(30,41,59,.8)}
+section{padding:88px 0}
+.head-center{text-align:center;max-width:640px;margin:0 auto 56px}
+
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.card{
+  padding:30px;border-radius:var(--radius);
+  background:rgba(3,10,20,.8);border:1px solid var(--slate-800);
+  transition:border-color .25s,transform .25s;
+}
+.card:hover{transform:translateY(-3px)}
+.card.gold:hover{border-color:rgba(201,157,54,.4)}
+.card.em:hover{border-color:rgba(76,185,140,.4)}
+.card-icon{
+  width:46px;height:46px;border-radius:12px;margin-bottom:22px;
+  display:flex;align-items:center;justify-content:center;
+}
+.card-icon svg{width:22px;height:22px}
+.card.gold .card-icon{background:rgba(201,157,54,.1);color:var(--gold-400)}
+.card.em .card-icon{background:rgba(76,185,140,.1);color:var(--em-400)}
+.card h3{font-size:18px;font-weight:700;color:#fff;margin-bottom:9px;letter-spacing:-.01em}
+.card p{font-size:13.5px;color:var(--slate-400);line-height:1.7}
+
+/* ============================================================
+   CALCULATOR
+   ============================================================ */
+.calc-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:52px;align-items:center}
+.calc-intro p{font-size:14.5px;color:var(--slate-400);line-height:1.75;margin:16px 0 26px}
+.note{
+  display:flex;gap:12px;align-items:flex-start;padding:16px;
+  border-radius:12px;background:var(--navy-900);border:1px solid var(--slate-800);
+  font-size:12.5px;color:var(--slate-400);line-height:1.6;
+}
+.note svg{width:18px;height:18px;color:var(--gold-400);flex-shrink:0;margin-top:2px}
+
+.calc-panel{
+  background:var(--navy-900);padding:34px;border-radius:var(--radius-lg);
+  border:1px solid var(--slate-800);box-shadow:0 30px 60px -25px rgba(0,0,0,.8);
+}
+.field{margin-bottom:26px}
+.field-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:12px}
+.field-top label{font-size:13.5px;font-weight:600;color:var(--slate-300)}
+.field-val{font-size:16px;font-weight:700;color:var(--gold-400);white-space:nowrap}
+
+input[type=range]{
+  -webkit-appearance:none;appearance:none;width:100%;height:6px;
+  border-radius:999px;background:var(--navy-950);cursor:pointer;outline:none;
+  border:1px solid var(--slate-800);
+}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;
+  background:var(--gold-500);border:2px solid var(--navy-900);cursor:pointer;
+  box-shadow:0 2px 8px rgba(0,0,0,.5);
+}
+input[type=range]::-moz-range-thumb{
+  width:18px;height:18px;border-radius:50%;background:var(--gold-500);
+  border:2px solid var(--navy-900);cursor:pointer;
+}
+input[type=range]:focus-visible{outline:2px solid var(--gold-400);outline-offset:3px}
+
+.results{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  padding-top:26px;border-top:1px solid var(--slate-800);text-align:center;
+}
+.result{padding:16px 10px;border-radius:12px;background:var(--navy-950)}
+.result.hi{border:1px solid rgba(201,157,54,.25)}
+.result-label{font-size:11.5px;color:var(--slate-400);display:block;margin-bottom:5px}
+.result.hi .result-label{color:var(--gold-400)}
+.result-num{font-size:clamp(.9rem,2.2vw,1.1rem);font-weight:700;color:#fff;white-space:nowrap}
+.result-num.em{color:var(--em-400)}
+.result-num.gold{color:var(--gold-400)}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about{text-align:center}
+.about-inner{max-width:760px;margin:0 auto}
+.about p.body{color:var(--slate-300);line-height:1.8;font-size:15.5px;margin:22px 0 42px}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:left}
+.pillar{padding:20px;border-radius:12px;background:var(--navy-950);border-left:3px solid var(--gold-500)}
+.pillar.em{border-left-color:var(--em-500)}
+.pillar h4{font-size:16px;font-weight:700;color:#fff;margin-bottom:5px}
+.pillar p{font-size:12.5px;color:var(--slate-400);line-height:1.6}
+
+/* ============================================================
+   CONTACT FORM
+   ============================================================ */
+.contact-wrap{max-width:800px;margin:0 auto}
+.form-card{
+  background:var(--navy-900);border:1px solid var(--slate-800);
+  border-radius:var(--radius-lg);padding:clamp(26px,5vw,50px);
+  box-shadow:0 30px 60px -25px rgba(0,0,0,.8);
+}
+.form-head{text-align:center;margin-bottom:36px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.form-group{margin-bottom:20px}
+.form-group label{
+  display:block;font-size:11px;font-weight:600;color:var(--slate-300);
+  text-transform:uppercase;letter-spacing:.09em;margin-bottom:8px;
+}
+.form-group input,.form-group select,.form-group textarea{
+  width:100%;background:var(--navy-950);border:1px solid var(--slate-700);
+  border-radius:12px;padding:13px 16px;color:#fff;font-size:14px;
+  transition:border-color .2s;
+}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--slate-600)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{
+  outline:none;border-color:var(--gold-500);
+}
+.form-group select option{background:var(--navy-900);color:#fff}
+.form-group textarea{resize:vertical;min-height:96px}
+
+.btn-submit{
+  width:100%;padding:16px;border-radius:12px;background:var(--gold-500);
+  color:var(--navy-950);font-weight:700;font-size:13.5px;
+  text-transform:uppercase;letter-spacing:.09em;
+  box-shadow:0 10px 30px -10px rgba(201,157,54,.5);margin-top:6px;
+}
+.btn-submit:hover:not(:disabled){background:var(--gold-400)}
+.btn-submit:disabled{opacity:.6;cursor:not-allowed}
+
+.form-status{
+  margin-top:18px;padding:14px 16px;border-radius:12px;
+  font-size:13.5px;text-align:center;display:none;line-height:1.6;
+}
+.form-status.show{display:block}
+.form-status.ok{background:rgba(38,92,66,.25);border:1px solid var(--em-500);color:#A7E8C8}
+.form-status.err{background:rgba(127,29,29,.25);border:1px solid #B91C1C;color:#FCA5A5}
+
+/* Honeypot — hidden from humans, catches bots */
+.hp{position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{
+  padding:44px 0;background:#02060D;
+  border-top:1px solid rgba(30,41,59,.8);
+  color:var(--slate-500);font-size:12px;
+}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:14px}
+.footer-brand img{width:36px;height:36px;object-fit:contain}
+.footer-brand strong{font-size:14px;color:#fff;font-weight:700;display:block}
+.footer-brand strong span{color:var(--gold-400)}
+.footer-brand p{font-size:11px;color:var(--slate-500);margin-top:2px}
+.footer-right{text-align:right}
+.footer-right .disc{margin-top:6px;font-size:11px;color:var(--slate-600);max-width:460px}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr;gap:48px}
+  .hero p.lead{margin-left:auto;margin-right:auto}
+  .calc-grid{grid-template-columns:1fr;gap:36px}
+  .cards{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:860px){
+  .nav-links,.nav .btn-gold{display:none}
+  .nav-toggle{display:block}
+  .hero{padding:120px 0 80px}
+}
+@media (max-width:640px){
+  .cards,.pillars,.form-row{grid-template-columns:1fr}
+  section{padding:64px 0}
+  .results{grid-template-columns:1fr;gap:10px}
+  .result{display:flex;justify-content:space-between;align-items:center;text-align:left;padding:14px 16px}
+  .result-label{margin-bottom:0}
+  .hero-cta .btn{width:100%}
+  .footer-inner{flex-direction:column;text-align:center}
+  .footer-right{text-align:center}
+  .footer-right .disc{margin-left:auto;margin-right:auto}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ========================= NAV ========================= -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#home" class="brand">
+      <div class="brand-mark"><img src="logo.png" alt="Durva Fincorp logo"></div>
+      <div>
+        <span class="brand-name">DURVA <span>FINCORP</span></span>
+        <span class="brand-sub">Wealth &amp; Advisory</span>
+      </div>
+    </a>
+
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#services">Solutions</a>
+      <a href="#calculator">SIP Calculator</a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <a href="#contact" class="btn btn-gold">Book Consultation</a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Toggle navigation menu">
+      <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home">Home</a>
+    <a href="#services">Solutions</a>
+    <a href="#calculator">SIP Calculator</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="btn btn-gold">Book Consultation</a>
+  </div>
+</nav>
+
+<!-- ========================= HERO ========================= -->
+<section id="home" class="hero">
+  <div class="glow glow-a"></div>
+  <div class="glow glow-b"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+          <span>Institutional-Grade Financial Architecture</span>
+        </div>
+
+        <h1>Disciplined Wealth Creation with <span class="grad-text">Precision Growth</span>.</h1>
+
+        <p class="lead">
+          Empowering individuals, families, and businesses with custom-tailored investment
+          strategies, risk mitigation, and continuous asset monitoring engineered for
+          generational security.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-gold btn-lg">
+            Start Consultation
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#calculator" class="btn btn-ghost">SIP Growth Tool</a>
+        </div>
+      </div>
+
+      <div class="showcase">
+        <img src="logo.png" alt="Durva Fincorp insignia">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= SERVICES ========================= -->
+<section id="services" class="band">
+  <div class="wrap">
+    <div class="head-center">
+      <div class="eyebrow">Our Solutions</div>
+      <h2 class="section-title">Structured Wealth &amp; Risk Services</h2>
+    </div>
+
+    <div class="cards">
+      <article class="card gold">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg></div>
+        <h3>Mutual Funds &amp; Equity</h3>
+        <p>Systematic, diversified equity strategies aligned to personal return objectives and risk tolerances.</p>
+      </article>
+
+      <article class="card em">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></div>
+        <h3>Life &amp; Health Cover</h3>
+        <p>Comprehensive risk underwriting designed to protect personal and business capital reserves.</p>
+      </article>
+
+      <article class="card gold">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 18v-7M14 18v-7M18 18v-7M6 18v-7M3 22h18M2 8l10-6 10 6H2z"/></svg></div>
+        <h3>Retirement Corpus</h3>
+        <p>Systematic accumulation frameworks and sustainable post-retirement cash distribution schedules.</p>
+      </article>
+
+      <article class="card em">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1M2 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1M7 21h10M12 3v18M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg></div>
+        <h3>Estate &amp; Tax Planning</h3>
+        <p>Tax-efficient investing structures ensuring smooth, generational transfer of assets.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= CALCULATOR ========================= -->
+<section id="calculator">
+  <div class="wrap">
+    <div class="calc-grid">
+      <div class="calc-intro">
+        <div class="eyebrow">Wealth Projection</div>
+        <h2 class="section-title">SIP Compounding Calculator</h2>
+        <p>
+          Disciplined monthly systematic investments leverage compounding to build
+          substantial long-term wealth. Test different investment amounts and horizons below.
+        </p>
+        <div class="note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          <span>Projections use standard compounding mathematics for illustrative purposes and do not represent assured returns.</span>
+        </div>
+      </div>
+
+      <div class="calc-panel">
+        <div class="field">
+          <div class="field-top">
+            <label for="monthlyInput">Monthly Contribution</label>
+            <span class="field-val" id="monthlyDisplay">₹25,000</span>
+          </div>
+          <input type="range" id="monthlyInput" min="1000" max="200000" step="1000" value="25000">
+        </div>
+
+        <div class="field">
+          <div class="field-top">
+            <label for="rateInput">Expected Annual Return (%)</label>
+            <span class="field-val" id="rateDisplay">12%</span>
+          </div>
+          <input type="range" id="rateInput" min="5" max="25" step="0.5" value="12">
+        </div>
+
+        <div class="field">
+          <div class="field-top">
+            <label for="yearsInput">Time Horizon (Years)</label>
+            <span class="field-val" id="yearsDisplay">15 Years</span>
+          </div>
+          <input type="range" id="yearsInput" min="1" max="35" step="1" value="15">
+        </div>
+
+        <div class="results">
+          <div class="result">
+            <span class="result-label">Total Invested</span>
+            <span class="result-num" id="investedResult">₹45,00,000</span>
+          </div>
+          <div class="result">
+            <span class="result-label">Est. Returns</span>
+            <span class="result-num em" id="returnsResult">₹81,76,343</span>
+          </div>
+          <div class="result hi">
+            <span class="result-label">Total Corpus</span>
+            <span class="result-num gold" id="totalResult">₹1,26,76,343</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= ABOUT ========================= -->
+<section id="about" class="band about">
+  <div class="wrap">
+    <div class="about-inner">
+      <div class="eyebrow">Our Philosophy</div>
+      <h2 class="section-title">Disciplined Insights. Transparent Execution.</h2>
+      <p class="body">
+        At Durva Fincorp, we focus on risk-adjusted growth rather than short-term market
+        speculation. We build data-backed portfolios tailored to your specific financial
+        milestones, ensuring clarity and transparency at every step.
+      </p>
+      <div class="pillars">
+        <div class="pillar">
+          <h4>Custom Strategies</h4>
+          <p>Portfolios structured specifically to your liquidity and risk profile.</p>
+        </div>
+        <div class="pillar em">
+          <h4>Regulatory Aligned</h4>
+          <p>Strict compliance with industry frameworks and distribution standards.</p>
+        </div>
+        <div class="pillar">
+          <h4>Transparent Review</h4>
+          <p>Periodic portfolio rebalancing and actionable progress audits.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= CONTACT ========================= -->
+<section id="contact">
+  <div class="wrap contact-wrap">
+    <div class="form-card">
+      <div class="form-head">
+        <div class="eyebrow">Get In Touch</div>
+        <h2 class="section-title">Schedule a Consultation</h2>
+      </div>
+
+      <form id="contactForm" novalidate>
+        <!-- Web3Forms delivery key — replace with your own from web3forms.com -->
+        <input type="hidden" name="access_key" value="21edb547-67ef-4071-88e7-2a07a9b5467b">
+        <input type="hidden" name="subject" value="New Consultation Request — Durva Fincorp">
+        <input type="hidden" name="from_name" value="Durva Fincorp Website">
+        <!-- Bot trap: humans never see or fill this -->
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="name" required placeholder="Full Name" autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required placeholder="+91 98765 43210" autocomplete="tel">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="name@example.com" autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label for="area">Advisory Area</label>
+          <select id="area" name="advisory_area">
+            <option>Mutual Funds &amp; Systematic Investment Plans</option>
+            <option>Life &amp; Health Insurance Advisory</option>
+            <option>Retirement &amp; Wealth Distribution</option>
+            <option>Comprehensive Financial Portfolio Audit</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message <span style="text-transform:none;letter-spacing:0;color:var(--slate-500)">(optional)</span></label>
+          <textarea id="message" name="message" placeholder="Tell us briefly about your goals..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-submit" id="submitBtn">Submit Inquiry</button>
+        <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= FOOTER ========================= -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <img src="logo.png" alt="Durva Fincorp logo">
+      <div>
+        <strong>DURVA <span>FINCORP</span></strong>
+        <p>Structured wealth management &amp; disciplined financial growth.</p>
+      </div>
+    </div>
+    <div class="footer-right">
+      <p>© <span id="year">2026</span> Durva Fincorp. All rights reserved.</p>
+      <!-- TODO: add your AMFI ARN / IRDAI licence number below — required for MF distributors -->
+      <p class="disc">
+        Mutual fund investments are subject to market risks. Read all scheme-related
+        documents carefully before investing.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------- Mobile navigation ---------- */
+(function(){
+  var toggle = document.getElementById('navToggle');
+  var menu   = document.getElementById('mobileMenu');
+
+  toggle.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  // Close the menu after tapping any link inside it
+  menu.addEventListener('click', function(e){
+    if (e.target.closest('a')) {
+      menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
+    }
+  });
+})();
+
+/* ---------- SIP calculator ---------- */
+(function(){
+  var monthly = document.getElementById('monthlyInput'),
+      rate    = document.getElementById('rateInput'),
+      years   = document.getElementById('yearsInput');
+
+  var monthlyOut = document.getElementById('monthlyDisplay'),
+      rateOut    = document.getElementById('rateDisplay'),
+      yearsOut   = document.getElementById('yearsDisplay'),
+      invested   = document.getElementById('investedResult'),
+      returns    = document.getElementById('returnsResult'),
+      total      = document.getElementById('totalResult');
+
+  function inr(v){ return '₹' + Math.round(v).toLocaleString('en-IN'); }
+
+  function calc(){
+    var P = parseFloat(monthly.value),
+        annual = parseFloat(rate.value),
+        yrs = parseInt(years.value, 10);
+
+    monthlyOut.textContent = inr(P);
+    rateOut.textContent    = annual + '%';
+    yearsOut.textContent   = yrs + (yrs === 1 ? ' Year' : ' Years');
+
+    var i = (annual / 100) / 12,
+        n = yrs * 12,
+        totalInvested = P * n,
+        // Future value of an annuity-due (contribution at start of each month)
+        futureValue = P * ((Math.pow(1 + i, n) - 1) / i) * (1 + i);
+
+    invested.textContent = inr(totalInvested);
+    returns.textContent  = inr(futureValue - totalInvested);
+    total.textContent    = inr(futureValue);
+  }
+
+  [monthly, rate, years].forEach(function(el){
+    el.addEventListener('input', calc);
+  });
+  calc();
+})();
+
+/* ---------- Contact form ---------- */
+(function(){
+  var form   = document.getElementById('contactForm'),
+      status = document.getElementById('formStatus'),
+      btn    = document.getElementById('submitBtn');
+
+  function show(msg, ok){
+    status.textContent = msg;
+    status.className = 'form-status show ' + (ok ? 'ok' : 'err');
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    if (!form.checkValidity()) {
+      show('Please fill in your name, phone number and a valid email address.', false);
+      form.reportValidity();
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    status.className = 'form-status';
+
+    var data = Object.fromEntries(new FormData(form));
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(res){
+      if (res.success) {
+        show('Thank you. Your request has been received — we will contact you shortly.', true);
+        form.reset();
+      } else {
+        show('Something went wrong. Please call us directly or try again shortly.', false);
+      }
+    })
+    .catch(function(){
+      show('Network error. Please check your connection and try again.', false);
+    })
+    .finally(function(){
+      btn.disabled = false;
+      btn.textContent = 'Submit Inquiry';
+    });
+  });
+})();
+
+/* ---------- Footer year ---------- */
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
