@@ -271,6 +271,24 @@ input[type=range]:focus-visible{outline:2px solid var(--gold-400);outline-offset
 }
 .form-head{text-align:center;margin-bottom:36px}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.contact-details{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:30px}
+.cd{
+  display:flex;gap:12px;align-items:flex-start;padding:15px 16px;border-radius:12px;
+  background:var(--navy-950);border:1px solid var(--slate-800);
+  color:var(--slate-300);transition:border-color .2s;
+}
+a.cd:hover{border-color:rgba(201,157,54,.4)}
+.cd svg{width:19px;height:19px;color:var(--gold-400);flex-shrink:0;margin-top:2px}
+.cd span{display:flex;flex-direction:column;min-width:0}
+.cd strong{font-size:14px;font-weight:700;color:#fff}
+.cd em{font-style:normal;font-size:11.5px;color:var(--slate-500);line-height:1.5;margin-top:2px}
+.socials{display:flex;gap:10px;justify-content:flex-end;margin-top:12px}
+.socials a{
+  width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;
+  background:var(--navy-900);border:1px solid var(--slate-800);color:var(--slate-400);transition:all .2s;
+}
+.socials a:hover{color:var(--gold-400);border-color:rgba(201,157,54,.4)}
+.socials svg{width:16px;height:16px}
 .form-group{margin-bottom:20px}
 .form-group label{
   display:block;font-size:11px;font-weight:600;color:var(--slate-300);
@@ -344,7 +362,7 @@ input[type=range]:focus-visible{outline:2px solid var(--gold-400);outline-offset
   .hero{padding:120px 0 80px}
 }
 @media (max-width:640px){
-  .cards,.pillars,.form-row{grid-template-columns:1fr}
+  .cards,.pillars,.form-row,.contact-details{grid-template-columns:1fr}
   section{padding:64px 0}
   .results{grid-template-columns:1fr;gap:10px}
   .result{display:flex;justify-content:space-between;align-items:center;text-align:left;padding:14px 16px}
@@ -352,6 +370,7 @@ input[type=range]:focus-visible{outline:2px solid var(--gold-400);outline-offset
   .hero-cta .btn{width:100%}
   .footer-inner{flex-direction:column;text-align:center}
   .footer-right{text-align:center}
+  .socials{justify-content:center}
   .footer-right .disc{margin-left:auto;margin-right:auto}
 }
 
@@ -570,6 +589,17 @@ input[type=range]:focus-visible{outline:2px solid var(--gold-400);outline-offset
         <h2 class="section-title">Schedule a Consultation</h2>
       </div>
 
+      <div class="contact-details">
+        <a class="cd" href="tel:+918140828071">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span><strong>+91 81408 28071</strong><em>Mon&ndash;Sat</em></span>
+        </a>
+        <div class="cd">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span><strong>Surat, Gujarat</strong><em>C-804 Nakshatra Solitaire, Palanpore Canal Road &mdash; 395009</em></span>
+        </div>
+      </div>
+
       <form id="contactForm" novalidate>
         <!-- Web3Forms delivery key — replace with your own from web3forms.com -->
         <input type="hidden" name="access_key" value="21edb547-67ef-4071-88e7-2a07a9b5467b">
@@ -632,6 +662,18 @@ input[type=range]:focus-visible{outline:2px solid var(--gold-400);outline-offset
         &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a>
       </p>
       <p class="reg">AMFI-registered Mutual Fund Distributor &nbsp;·&nbsp; <em>ARN-275996</em></p>
+      <p class="reg">
+        <a href="tel:+918140828071">+91 81408 28071</a> &nbsp;·&nbsp;
+        C-804 Nakshatra Solitaire, Palanpore Canal Road, Surat, Gujarat 395009
+      </p>
+      <div class="socials">
+        <a href="https://www.youtube.com/channel/UCokKnkS9SxxV8Nk4DDQu3wg" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
+        </a>
+        <a href="https://x.com/DesaiDaya" target="_blank" rel="noopener noreferrer" aria-label="X">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.1 8.1L23.3 22h-6.6l-5.1-6.7L5.7 22H2.6l7.6-8.7L1.1 2h6.7l4.6 6.1L18.9 2zm-1.1 18h1.7L7.3 3.7H5.5L17.8 20z"/></svg>
+        </a>
+      </div>
       <p class="disc">
         Durva Fincorp distributes mutual fund and insurance products and does not provide
         investment advice. We are not a SEBI-registered Investment Adviser.
